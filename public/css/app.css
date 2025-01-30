@@ -1,0 +1,63 @@
+/* General styles */ 
+.color-box {
+    height: 100px;
+    width: 100px; 
+}
+.carrés {
+    display: flex;
+    justify-content: space-around;
+}
+.red {
+    background-color: red !important; 
+}
+.blue {
+    background-color: blue;
+}
+.yellow {
+    background-color: yellow; 
+}
+.green {
+    background-color: green;
+}
+.purple {
+    background-color: purple;
+}
+.blueviolet {
+    background-color: blueviolet;
+}
+.lime {
+    background-color: lime;
+}
+.limegreen {
+    background-color: limegreen;
+}
+.chocolate {
+    background-color: chocolate;
+}
+.aquamarine {
+    background-color: aquamarine;
+}
+.row {
+    border: solid;
+    width: 75px;
+    height: 75px;
+}
+/*main */
+body {
+    height: 100vh;
+    width: 100vw; 
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
+#carre {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
