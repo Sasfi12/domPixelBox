@@ -20,7 +20,8 @@ let colorsList = [
     "blueviolet",
     "lime",
     "chocolate",
-    "aquamarine"
+    "aquamarine",
+    "white"
 ]
 let current ; 
 // select the div containing the color-boxes 
@@ -33,11 +34,22 @@ colors.addEventListener("click", function(e) {
     }
     
 }) 
-
+let bool = false 
 // send the color to the one of the divs above. 
-mainDiv.addEventListener("click", function(e) {
+mainDiv.addEventListener("mousedown", function(e) {
     console.log(e.target.classList)
-    if(current != undefined) {
-        e.target.classList.add(current)
-}
+    if(current != undefined && e.target.id !== "carre") {
+        e.target.classList = "row " + current
+        bool = true ; 
+    }
+    
+})
+mainDiv.addEventListener("mouseup", function() {
+    bool = false ; 
+})
+
+mainDiv.addEventListener("mousemove", function(e){
+    if(bool) {
+        e.target.classList = "row " + current
+    }
 })
