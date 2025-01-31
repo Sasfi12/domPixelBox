@@ -4,6 +4,7 @@ let divList = []
 for(let i = 0 ; i < 234 ; i ++) {
     let iets = document.createElement("div");  
     iets.classList.add("row")
+    iets.draggable == "false"
     mainDiv.append(iets)
 }
 
@@ -38,9 +39,12 @@ let bool = false
 // send the color to the one of the divs above. 
 mainDiv.addEventListener("mousedown", function(e) {
     console.log(e.target.classList)
-    if(current != undefined && e.target.id !== "carre") {
+    if(current != undefined && e.target.classList.contains("row")) {
         e.target.classList = "row " + current
         bool = true ; 
+    }
+    else if ((current == undefined && e.target.classList.contains("row"))) {
+        e.target.classList = "row white"
     }
     
 })
