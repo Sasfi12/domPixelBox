@@ -1,7 +1,7 @@
 let mainDiv = document.querySelector("#carre") 
 let divList = []
 // Create rows 
-for(let i = 0 ; i < 234 ; i ++) {
+for(let i = 0 ; i < 500 ; i ++) {
     let iets = document.createElement("div");  
     iets.classList.add("row")
     iets.draggable == "false"
@@ -43,10 +43,9 @@ mainDiv.addEventListener("mousedown", function(e) {
         e.target.classList = "row " + current
         bool = true ; 
     }
-    else if ((current == undefined && e.target.classList.contains("row"))) {
-        e.target.classList = "row white"
+    else {
+        console.log('clicked on blanck') 
     }
-    
 })
 mainDiv.addEventListener("mouseup", function() {
     bool = false ; 
@@ -54,6 +53,12 @@ mainDiv.addEventListener("mouseup", function() {
 
 mainDiv.addEventListener("mousemove", function(e){
     if(bool) {
-        e.target.classList = "row " + current
+        if(current != undefined && e.target.classList.contains("row")) {
+            e.target.classList = "row " + current
+            bool = true ; 
+        }
+        else {
+            console.log('clicked on blanck') 
+        }
     }
 })
