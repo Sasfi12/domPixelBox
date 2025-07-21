@@ -1,7 +1,7 @@
 let mainDiv = document.querySelector("#carre") 
 let divList = []
 // Create rows 
-for(let i = 0 ; i < 500 ; i ++) {
+for(let i = 0 ; i < 1254 ; i ++) {
     let iets = document.createElement("div");  
     iets.classList.add("row")
     iets.draggable == "false"
@@ -12,27 +12,14 @@ console.log(divList)
 
 
 // pickcolors 
-let colorsList = [
-    "red",
-    "green",
-    "yellow",
-    "blue",
-    "purple",
-    "blueviolet",
-    "lime",
-    "chocolate",
-    "aquamarine",
-    "white"
-]
+
 let current ; 
 // select the div containing the color-boxes 
-let colors = document.querySelector(".carrés");
-
-colors.addEventListener("click", function(e) {
-    if(colorsList.includes(e.target.classList[1])) {
-        current = e.target.classList[1]
+let colors = document.querySelector("#colorPicker");
+current = colors.value 
+colors.addEventListener("change", function(e) {
+        current = this.value
         console.log('current color is ' + current) 
-    }
     
 }) 
 let bool = false 
@@ -40,7 +27,7 @@ let bool = false
 mainDiv.addEventListener("mousedown", function(e) {
     console.log(e.target.classList)
     if(current != undefined && e.target.classList.contains("row")) {
-        e.target.classList = "row " + current
+        e.target.style.backgroundColor = current
         bool = true ; 
     }
     else {
@@ -54,8 +41,7 @@ mainDiv.addEventListener("mouseup", function() {
 mainDiv.addEventListener("mousemove", function(e){
     if(bool) {
         if(current != undefined && e.target.classList.contains("row")) {
-            e.target.classList = "row " + current
-            bool = true ; 
+            e.target.style.backgroundColor = current
         }
         else {
             console.log('clicked on blanck') 
