@@ -22,24 +22,24 @@ colors.addEventListener("change", function(e) {
         console.log('current color is ' + current) 
     
 }) 
-let bool = false 
+let isClicking = false 
 // send the color to the one of the divs above. 
 mainDiv.addEventListener("mousedown", function(e) {
     console.log(e.target.classList)
     if(current != undefined && e.target.classList.contains("row")) {
         e.target.style.backgroundColor = current
-        bool = true ; 
+        isClicking = true ; 
     }
     else {
         console.log('clicked on blanck') 
     }
 })
 mainDiv.addEventListener("mouseup", function() {
-    bool = false ; 
+    isClicking = false ; 
 })
 
 mainDiv.addEventListener("mousemove", function(e){
-    if(bool) {
+    if(isClicking) {
         if(current != undefined && e.target.classList.contains("row")) {
             e.target.style.backgroundColor = current
         }
