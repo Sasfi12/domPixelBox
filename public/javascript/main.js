@@ -1,9 +1,8 @@
 let mainDiv = document.querySelector("#carre") 
 
-// put the ammount of pixels in a pixelAmmount value
 const pixelAmmount = 1254 ;
 for(let i = 0 ; i < pixelAmmount ; i ++) {
-    let pixel = document.createElement("div"); // renamed values that had a... "iets" as name before as "pixel" 
+    let pixel = document.createElement("div"); 
     pixel.classList.add("row")
     pixel.draggable == "false"
     mainDiv.append(pixel)
@@ -11,20 +10,16 @@ for(let i = 0 ; i < pixelAmmount ; i ++) {
 
 
 
-//  Renamed current to currentColor. 
 let currentColor ; 
 
-//  Renamed to chosenColor. 
 const chosenColor = document.querySelector("#colorPicker");
 
-// Renamed to currentColor and put the value as a const, 
 currentColor = chosenColor.value 
 chosenColor.addEventListener("change", function(e) {
         currentColor = this.value
     
 }) 
 
-//  renamed it to isDragging. 
 let isDragging = false 
 mainDiv.addEventListener("mousedown", function(e) {
     console.log(e.target.classList)
