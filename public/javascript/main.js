@@ -1,58 +1,50 @@
 let mainDiv = document.querySelector("#carre") 
-// What is div list ?  Why is it never used ?
-// If it is dead code, remove it
-let divList = []
-// How did you get this 1254 ?
-// Put it in a constant
+
+// put the ammount of pixels in a pixelAmmount value
+const pixelAmmount = 1254 ;
 for(let i = 0 ; i < 1254 ; i ++) {
-    let iets = document.createElement("div");  
-    iets.classList.add("row")
-    iets.draggable == "false"
-    mainDiv.append(iets)
+    let pixel = document.createElement("div"); // renamed values that had a... "iets" as name before as "pixel" 
+    pixel.classList.add("row")
+    pixel.draggable == "false"
+    mainDiv.append(pixel)
 }
 
-// No console log in final code, only use it for debugging
-console.log(divList)
 
 
-// current what ?
-// explicitly says if it is current color
-let current ; 
+//  Renamed current to currentColor. 
+let currentColor ; 
 
-// instead of colors, I would name it color picker
-// if you put colors, it means this maybe an array of colors
-let colors = document.querySelector("#colorPicker");
+//  Renamed to chosenColor. 
+const chosenColor = document.querySelector("#colorPicker");
 
-// you are declaring color above but assigning it only there
-// also, if you dont override its value later, better put it in a constant
-current = colors.value 
-colors.addEventListener("change", function(e) {
-        current = this.value
-        console.log('current color is ' + current) 
+// Renamed to currentColor and put the value as a const, 
+currentColor = chosenColor.value 
+chosenColor.addEventListener("change", function(e) {
+        currentColor = this.value
     
 }) 
 
-// better to name it isDragging
-let isClicking = false 
+//  renamed it to isDragging. 
+let isDragging = false 
 mainDiv.addEventListener("mousedown", function(e) {
     console.log(e.target.classList)
-    if(current != undefined && e.target.classList.contains("row")) {
-        e.target.style.backgroundColor = current
-        isClicking = true ; 
+    if(currentColor != undefined && e.target.classList.contains("row")) {
+        e.target.style.backgroundColor = currentColor
+        isDragging = true ; 
     }
     else {
         console.log('clicked on blanck') 
     }
 })
 mainDiv.addEventListener("mouseup", function() {
-    isClicking = false ; 
+    isDragging = false ; 
 })
 
 
 mainDiv.addEventListener("mousemove", function(e){
-    if(isClicking) {
-        if(current != undefined && e.target.classList.contains("row")) {
-            e.target.style.backgroundColor = current
+    if(isDragging) {
+        if(currentColor != undefined && e.target.classList.contains("row")) {
+            e.target.style.backgroundColor = currentColor
         }
         else {
             console.log('clicked on blanck') 
