@@ -2,7 +2,7 @@ let mainDiv = document.querySelector("#carre")
 
 // put the ammount of pixels in a pixelAmmount value
 const pixelAmmount = 1254 ;
-for(let i = 0 ; i < 1254 ; i ++) {
+for(let i = 0 ; i < pixelAmmount ; i ++) {
     let pixel = document.createElement("div"); // renamed values that had a... "iets" as name before as "pixel" 
     pixel.classList.add("row")
     pixel.draggable == "false"
